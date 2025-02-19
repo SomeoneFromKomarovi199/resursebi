@@ -1,8 +1,118 @@
-<html>
-  <head>
-    <title>რესურსები</title>
-  </head>
-  <body>
-    <h1>Under development</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resursebi Files Table</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 5px;
+    }
+    a {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Resursebi Files Table</h1>
+  <table id="filesTable">
+    <thead>
+      <tr>
+        <th>Year \ Class</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    // Configurable variables:
+    const minYear = 2023;
+    const maxYear = 2025;
+    const minClass = 7;
+    const maxClass = 12;
+    const filesPerCell = 5; // numbers 1 to 5
+    // Base URL for the file structure; adjust if needed
+    const baseURL = 'https://xxx.github.io/resursebi/assets/shida-fizika';
+
+    // Utility: Check if a URL exists using a HEAD request.
+    async function urlExists(url) {
+      try {
+        const response = await fetch(url, {method: 'HEAD'});
+        return response.ok;
+      } catch (error) {
+        console.error("Error checking URL:", url, error);
+        return false;
+      }
+    }
+
+    // Function to create the table
+    async function createTable() {
+      const table = document.getElementById('filesTable');
+
+      // Create header row for classes
+      const theadRow = table.querySelector('thead tr');
+      for (let cls = minClass; cls <= maxClass; cls++) {
+        const th = document.createElement('th');
+        th.textContent = "Class " + cls;
+        theadRow.appendChild(th);
+      }
+
+      const tbody = table.querySelector('tbody');
+
+      // For each year, create a row
+      for (let year = minYear; year <= maxYear; year++) {
+        const tr = document.createElement('tr');
+
+        // First cell is the Year label
+        const yearCell = document.createElement('td');
+        yearCell.textContent = year;
+        tr.appendChild(yearCell);
+
+        // For each class create a cell
+        for (let cls = minClass; cls <= maxClass; cls++) {
+          const td = document.createElement('td');
+
+          // For each file number in the cell, check and create link or blank <p>
+          for (let num = 1; num <= filesPerCell; num++) {
+            // Build file URL: /assets/shida-fizika/[year]/[class]/x.pdf
+            const fileURL = `${baseURL}/${year}/${cls}/${num}.pdf`;
+
+            // Create a placeholder element 
+            const cellItem = document.createElement('span');
+            cellItem.style.display = "inline-block";
+            cellItem.style.marginRight = "5px";
+
+            // Now check if file exists
+            // We await each fetch sequentially. For faster results, you might want to
+            // collect promises and then update the cell dynamically.
+            if (await urlExists(fileURL)) {
+              const link = document.createElement('a');
+              link.href = fileURL;
+              link.textContent = num + ".pdf";
+              link.target = "_blank";
+              cellItem.appendChild(link);
+            } else {
+              const blank = document.createElement('p');
+              blank.textContent = ""; // blank paragraph as placeholder
+              blank.style.display = "inline-block";
+              blank.style.width = "50px"; // optional: set minimal width for empty spots
+              cellItem.appendChild(blank);
+            }
+
+            td.appendChild(cellItem);
+          }
+          tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+      }
+    }
+
+    // Call the function to build the table after DOM loads.
+    document.addEventListener("DOMContentLoaded", createTable);
+  </script>
+</body>
 </html>
