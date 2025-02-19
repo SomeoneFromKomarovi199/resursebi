@@ -27,8 +27,12 @@
                 }
             },
             "2025": {
+                "8": {
+                    "ტური 2": "assets/komarovi-fizika-shida/2025/8/II.pdf"
+                },
                 "9": {
-                    "ტური 1": "assets/komarovi-fizika-shida/2025/9/I.pdf"
+                    "ტური 1": "assets/komarovi-fizika-shida/2025/9/I.pdf",
+                    "ტური 2": "assets/komarovi-fizika-shida/2025/9/II.pdf"
                 }
             }
         }
