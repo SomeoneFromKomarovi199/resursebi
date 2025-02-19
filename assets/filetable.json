@@ -7,13 +7,22 @@
             "2023": {
                 "7": {
                     "ტური 3 (გაუქმებული)": "assets/komarovi-fizika-shida/2023/7/III_gauqmebuli.pdf"
+                },
+                "9": {
+                    "ტური 1": "assets/komarovi-fizika-shida/2023/9/I.pdf"
                 }
             },
             "2024": {
                 "9": {
+                    "ტური 1": "assets/komarovi-fizika-shida/2024/9/I.pdf",
                     "ტური 2": "assets/komarovi-fizika-shida/2024/9/II.pdf",
                     "ტური 3": "assets/komarovi-fizika-shida/2024/9/III.pdf",
                     "ტური 4": "assets/komarovi-fizika-shida/2024/9/IV.pdf"
+                }
+            },
+            "2025": {
+                "9": {
+                    "ტური 1": "assets/komarovi-fizika-shida/2025/9/I.pdf"
                 }
             }
         }
