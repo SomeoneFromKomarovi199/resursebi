@@ -99,6 +99,24 @@
                         }
 
                         document.getElementById("content").appendChild(tableElement);
+                    } else if (filetable[key]["type"] == "list") {
+                        var ulelement = document.createElement("ul");
+                        for (let title in filetable[key]["content"]) {
+                            var lielement = document.createElement("li");
+                            lielement.textContent = title + " - ";
+
+                            for (let subtitle in filetable[key]["content"][title]) {
+                                var aelement = document.createElement("a");
+                                aelement.textContent = subtitle;
+                                aelement.href = filetable[key]["content"][title][subtitle];
+                                aelement.target = "_blank";
+                                lielement.appendChild(aelement);
+                            }
+
+                            ulelement.appendChild(lielement);
+                        }
+
+                        document.getElementById("content").appendChild(ulelement);
                     }
                 }
             }).

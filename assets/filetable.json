@@ -36,5 +36,21 @@
                 }
             }
         }
+    },
+    "ფიზიკის სამეცადინო რესურსები": {
+        "type": "list",
+        "content": {
+            "IX კლასის ფიზიკის დამატებითი საკითხები": {
+                "წიგნი": "assets/fizikis-resursebi/IX_კლასის_ფიზიკის_დამატებითი_საკითხები.pdf"
+            },
+            "საოლიმპიადო ამოცანები კინემატიკაში თავისი ამოხსნებით": {
+                "წიგნი": "assets/fizikis-resursebi/საოლიმპიადო_ამოცანები_კინემატიკაში_თავისი_ამოხსნებით.pdf"
+            },
+            "სავჩენკო": {
+                "ქართული": "assets/fizikis-resursebi/wignebi/savchenko_ge.pdf",
+                "ინგლისური": "assets/fizikis-resursebi/wignebi/savchenko_en.pdf",
+                "რუსული": "assets/fizikis-resursebi/wignebi/savchenko_ru.pdf"
+            }
+        }
     }
 }
